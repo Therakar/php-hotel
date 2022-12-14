@@ -50,12 +50,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- link css -->
     <link rel="stylesheet" href="css/style.css">
-
     <!-- cdn bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>    <title>php hotels</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
 </head>
-<body>              
-                <table class="table caption-top">
+<body>
+            <div class="container">
+                <table class="table caption-top table-bordered">
                     <caption><h1>Lista degli hotel</h1></caption>
                     <thead>
                         <tr>
@@ -68,7 +69,7 @@
                     </thead>
                     <tbody>
                     <?php foreach ($hotels as $hotel) { ?>
-                    <tr>
+                    <tr class="table-bordered">
                         <td><?php echo $hotel["name"]; ?></td>
                         <td>
                             <?php if($hotel["parking"]){ ?> 
@@ -86,5 +87,7 @@
                     <?php } ?>
                     </tbody>
                 </table>
+            </div>              
+                
 </body>
 </html>
