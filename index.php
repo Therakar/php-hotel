@@ -50,36 +50,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- link css -->
     <link rel="stylesheet" href="css/style.css">
-    <title>php hotels</title>
+
+    <!-- cdn bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>    <title>php hotels</title>
 </head>
-<body>
-            <div class="container">    
-                <?php foreach($hotels as $hotel) { ?>    
-                    <div class="hotel-card col-2">
-                        <h1> <?php echo $hotel["name"]; ?> </h1>
-
-                        <h2>Descrizione: </h2>
-                        <p><?php echo $hotel["description"]; ?></p>
-
-                        <h2>Parcheggio: </h2>
-                        <?php 
-                            if($hotel["parking"]){ ?> 
+<body>              
+                <table class="table caption-top">
+                    <caption><h1>Lista degli hotel</h1></caption>
+                    <thead>
+                        <tr>
+                        <th scope="col">Nome Hotel</th>
+                        <th scope="col">Parcheggio</th>
+                        <th scope="col">Media Recensioni</th>
+                        <th scope="col">Distanza Dal Centro</th>
+                        <th scope="col">Descrizione</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($hotels as $hotel) { ?>
+                    <tr>
+                        <td><?php echo $hotel["name"]; ?></td>
+                        <td>
+                            <?php if($hotel["parking"]){ ?> 
                                 <p>Disponibile</p> 
-                        <?php } ?>
-                        <?php 
-                            if(!$hotel["parking"]){ ?> 
+                            <?php } ?>
+                                 
+                            <?php if(!$hotel["parking"]){ ?> 
                                 <p>Non Disponibile </p> 
-                        <?php } ?>
-                        
-                        <h3>Media Recensioni:</h3>
-                        <p><?php echo $hotel["vote"]; ?></p>
-
-                        <h3>Distanza Dal Centro:</h3>
-                        <p><?php echo $hotel["distance_to_center"]; ?></p>
-
-                        <hr>
-                    </div>
-                <?php } ?>
-            </div>
+                            <?php } ?>
+                        </td>
+                        <td><?php echo $hotel["vote"]; ?></td>
+                        <td><?php echo $hotel["distance_to_center"]; ?></td>
+                        <td><?php echo $hotel["description"]; ?></td>
+                    </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
 </body>
 </html>
